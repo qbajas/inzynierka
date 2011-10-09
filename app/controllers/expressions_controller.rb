@@ -10,7 +10,6 @@ class ExpressionsController < ApplicationController
     conf.update.link.popup = true
   end
 
-
   # GET /expressions
   # GET /expressions.json
   #def index
