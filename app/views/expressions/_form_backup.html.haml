@@ -1,0 +1,34 @@
+= form_for(@expression, :url => {:action => :load_data}, :remote => true) do |f|
+  -if @expression.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@expression.errors.count, "error")} prohibited this expression from being saved:"
+      %ul
+        - @expression.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_area :name
+  .actions
+    = f.submit 'Wczytaj dane'
+
+  #images
+
+
+
+= form_for(@expression) do |f|
+  -if @expression.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@expression.errors.count, "error")} prohibited this expression from being saved:"
+      %ul
+        - @expression.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :definition
+    = f.text_area :definition
+  .field
+    = f.label :notes
+    = f.text_area :notes
+  .actions
+    = f.submit 'Save'

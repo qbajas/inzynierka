@@ -1,0 +1,78 @@
+// Place all the styles related to the expressions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+img.imageSelect{
+    border: 4px solid transparent;
+    padding: 4px;
+    cursor: pointer;
+
+}
+
+img.imageSelected{
+    border: 4px solid red;
+    padding: 4px;
+}
+
+
+#definitions .definition, #examples .example, #synonyms .synonym, #suggested_name .name{
+    cursor: pointer;
+    &:hover{
+        text-decoration:underline;
+    }
+
+    &.inactive{
+        color: lightgray;
+    }
+}
+
+
+
+
+form.new_expression, form.edit_expression{
+    textarea{
+        height: 150px;
+        width: 500px;
+    }
+}
+
+.load_data_container{
+    border: 1px solid gray;
+    margin:10px 5px;
+    padding:5px;
+}
+
+.edit_data_container{
+    border: 1px solid gray;
+    margin:5px;
+    padding:5px;
+
+    .field{
+      border-bottom: 1px solid lightgray;
+      /*border-radius:5px;*/
+
+      padding:10px 5px;
+      margin:0;
+      /*margin:10px 5px;*/
+      &:hover{
+        /*background: lightyellow;*/
+      }
+    }
+
+}
+
+.googlePagination{
+    a{
+        font-size:26px;
+        margin: 10px;
+        color:gray;
+    }
+}
+
+input[type=submit]{
+    min-width: 200px;
+}
+
+table.expressions tr{
+    border-bottom: 1px solid gray;
+}

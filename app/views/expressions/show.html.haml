@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  = image_tag @expression.image
+
+%p
+  %b Name:
+  = @expression.name
+%p
+  %b Definition:
+  = simple_format @expression.definition
+%p
+  %b Examples:
+  = simple_format @expression.examples
+%p
+  %b Synonyms:
+  = simple_format @expression.synonyms
+%p
+  %b Notes:
+  = @expression.notes
+
+= link_to 'Edit', edit_expression_path(@expression)
+\|
+= link_to 'Back', expressions_path

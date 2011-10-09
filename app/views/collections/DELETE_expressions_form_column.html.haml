@@ -1,0 +1,53 @@
+-content_for :head do
+  =render :partial => 'expressions/google_image_js'
+
+-@expression = @record.expressions.new
+
+= form_for(@expression, :url => {:controller => :expressions, :action => :load_data}, :method => :post, :remote => true) do |f|
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Load data'
+
+  #branding
+  #google_images{:style => 'overflow:auto;'}
+
+
+
+= form_for(@expression) do |f|
+  -if @expression.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@expression.errors.count, "error")} prohibited this expression from being saved:"
+      %ul
+        - @expression.errors.full_messages.each do |msg|
+          %li= msg
+
+  #definitions
+  .field
+    = f.label :definition
+    = f.text_area :definition
+
+  #examples
+  .field
+    = f.label :examples
+    = f.text_area :examples
+
+  #synonyms
+  .field
+    = f.label :synonyms
+    = f.text_area :synonyms
+
+
+
+  .field
+    = f.label :notes
+    = f.text_field :notes
+
+  = hidden_field_tag :image_url
+  = f.hidden_field :name
+
+  .actions
+    = f.submit 'Save'
+

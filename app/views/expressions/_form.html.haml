@@ -1,0 +1,69 @@
+-content_for :head do
+  =render :partial => 'google_image_js'
+
+
+.load_data_container
+  = form_for(@expression, :url => {:action => :load_data}, :method => :post, :remote => true) do |f|
+
+    .field
+      = f.label :name, 'Search for '
+      = f.text_field :name
+    .actions#load_data
+      = f.submit 'Load data'
+    .indicator#data_loading{:style=> 'display:none;'}
+      =image_tag 'indicator.gif'
+
+
+.edit_data_container
+
+
+  = form_for(@expression) do |f|
+    -if @expression.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@expression.errors.count, "error")} prohibited this expression from being saved:"
+        %ul
+          - @expression.errors.full_messages.each do |msg|
+            %li= msg
+
+    .field
+      #suggested_name
+      = f.label :name
+      = f.text_field :name
+
+
+    .field
+      #branding
+      #google_images{:style => 'overflow:auto;'}
+
+      = f.label :image
+      #image_preview
+        = image_tag(@expression.image) if @expression.image.present?
+
+
+    .field
+      #definitions
+      = f.label :definition
+      = f.text_area :definition
+
+    .field
+      #examples
+      = f.label :examples
+      = f.text_area :examples
+
+    .field
+      #synonyms
+      = f.label :synonyms
+      = f.text_area :synonyms
+
+
+
+    .field
+      = f.label :notes
+      = f.text_field :notes
+
+    = hidden_field_tag :image_url
+
+
+    .actions
+      = f.submit 'Save'
+
