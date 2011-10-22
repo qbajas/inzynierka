@@ -3,10 +3,12 @@ require 'spec_helper'
 describe "expressions/new.html.haml" do
   before(:each) do
     assign(:expression, stub_model(Expression,
-      :name => "MyText",
-      :definition => "MyText",
-      :notes => "MyText"
+                                   :name => "MyText",
+                                   :definition => "MyText",
+                                   :notes => "MyText"
     ).as_new_record)
+    # mock up an authentication in the underlying warden library
+    @request.env['warden'] = mock(Warden, :authenticate? => false)
   end
 
   it "renders new expression form" do

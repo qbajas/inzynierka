@@ -55,6 +55,9 @@
       = f.label :synonyms
       = f.text_area :synonyms
 
+    .field
+      = f.label :collection
+      = f.select :collection_id, signed_in? ? current_user.collections.map { |c| [c.name, c.id] } : []
 
 
     .field

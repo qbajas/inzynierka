@@ -20,6 +20,8 @@ require 'spec_helper'
 
 describe CollectionsController do
 
+  #include Devise::TestHelpers
+
   # This should return the minimal set of attributes required to create a valid
   # Collection. As you add validations to Collection, be sure to
   # update the return value of this method accordingly.

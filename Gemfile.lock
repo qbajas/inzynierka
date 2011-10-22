@@ -181,6 +181,7 @@ DEPENDENCIES
   active_scaffold
   coffee-rails (~> 3.1.0)
   devise
+  execjs
   factory_girl_rails
   formtastic
   haml-rails

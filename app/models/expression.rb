@@ -12,4 +12,7 @@ class Expression < ActiveRecord::Base
 
   belongs_to :collection
 
+#  before save:
+#  check if collection for this expression belongs to user (or nil - an universal collection )
+
 end

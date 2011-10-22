@@ -3,10 +3,12 @@ require 'spec_helper'
 describe "expressions/edit.html.haml" do
   before(:each) do
     @expression = assign(:expression, stub_model(Expression,
-      :name => "MyText",
-      :definition => "MyText",
-      :notes => "MyText"
+                                                 :name => "MyText",
+                                                 :definition => "MyText",
+                                                 :notes => "MyText"
     ))
+    # mock up an authentication in the underlying warden library
+    @request.env['warden'] = mock(Warden, :authenticate? => false)
   end
 
   it "renders the edit expression form" do

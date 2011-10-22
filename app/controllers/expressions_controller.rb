@@ -4,13 +4,18 @@ class ExpressionsController < ApplicationController
 
   active_scaffold :expression do |conf|
     conf.columns = [:image, :name, :definition]
+    # open links in new pages and as popups
     conf.create.link.page = true
     conf.create.link.popup = true
+    conf.create.link.label = "Create new expression "
+
     conf.update.link.page = true
     conf.update.link.popup = true
+
+    #conf.delete.link.inline = false
   end
 
-
+  # active scaffold action
   # GET /expressions
   # GET /expressions.json
   #def index
@@ -41,6 +46,12 @@ class ExpressionsController < ApplicationController
   # GET /expressions/new.json
   def new
     @expression = Expression.new
+    # set collection id from active scaffold params
+    if !params[:eid].nil?
+      @collection_id = params[:eid].gsub("collections_","").gsub("_expressions","").to_i
+      collection = Collection.find_by_id(@collection_id)
+      @expression.collection = collection
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -87,17 +98,18 @@ class ExpressionsController < ApplicationController
     end
   end
 
+  # active scaffold action
   # DELETE /expressions/1
   # DELETE /expressions/1.json
-  def destroy
-    @expression = Expression.find(params[:id])
-    @expression.destroy
-
-    respond_to do |format|
-      format.html { redirect_to expressions_url }
-      format.json { head :ok }
-    end
-  end
+  #def destroy
+  #  @expression = Expression.find(params[:id])
+  #  @expression.destroy
+  #
+  #  respond_to do |format|
+  #    format.html { redirect_to expressions_url }
+  #    format.json { head :ok }
+  #  end
+  #end
 
 
   # POST /expressions/load_data

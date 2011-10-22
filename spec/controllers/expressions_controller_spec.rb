@@ -28,11 +28,11 @@ describe ExpressionsController do
   end
 
   describe "GET index" do
-    it "assigns all expressions as @expressions" do
+    it "assigns all expressions as @records" do
       expression = Expression.create! valid_attributes
       #expression = FactoryGirl.create(:expression)
       get :index
-      assigns(:expressions).should eq([expression])
+      assigns(:records).should eq([expression])
     end
   end
 
