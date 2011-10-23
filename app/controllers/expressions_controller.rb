@@ -66,9 +66,9 @@ class ExpressionsController < ApplicationController
 
     respond_to do |format|
       if @expression.save
-        format.html { redirect_to @expression, notice: 'Expression was successfully created.' }
+        format.html { redirect_to @expression, :notice => 'Expression was successfully created.' }
       else
-        format.html { render action: "new" }
+        format.html { render :action => "new" }
       end
     end
   end
