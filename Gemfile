@@ -28,7 +28,10 @@ gem 'paperclip'
 gem 'active_scaffold'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "devise"
+
 gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+gem 'fastercsv'
 
 group :test, :development do
   gem 'rspec-rails'
