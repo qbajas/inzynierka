@@ -36,10 +36,7 @@ class ExpressionsController < ApplicationController
   def show
     @expression = Expression.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @expression }
-    end
+
   end
 
   # GET /expressions/new
@@ -53,10 +50,7 @@ class ExpressionsController < ApplicationController
       @expression.collection = collection
     end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @expression }
-    end
+
   end
 
   # GET /expressions/1/edit
@@ -73,10 +67,8 @@ class ExpressionsController < ApplicationController
     respond_to do |format|
       if @expression.save
         format.html { redirect_to @expression, notice: 'Expression was successfully created.' }
-        format.json { render json: @expression, status: :created, location: @expression }
       else
         format.html { render action: "new" }
-        format.json { render json: @expression.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -89,11 +81,9 @@ class ExpressionsController < ApplicationController
 
     respond_to do |format|
       if @expression.update_attributes(params[:expression])
-        format.html { redirect_to @expression, notice: 'Expression was successfully updated.' }
-        format.json { head :ok }
+        format.html { redirect_to @expression, :notice => 'Expression was successfully updated.' }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @expression.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
       end
     end
   end
