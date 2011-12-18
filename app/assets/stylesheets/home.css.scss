@@ -12,6 +12,10 @@
     a{
         color: black;
         margin-left:10px;
+        text-decoration:none;
+        &:hover{
+            text-decoration:underline;
+        }
     }
     .desc{
         color: gray;
