@@ -2,10 +2,15 @@
   =render :partial => 'google_image_js'
 
 
+
+%h2
+  Step 1: Write a word in 'Search for' box, then press 'Load data'
+
 .load_data_container
+
   = form_for(@expression, :url => {:action => :load_data}, :method => :post, :remote => true) do |f|
 
-    .field
+    .field{:style=> 'float:left;'}
       = f.label :name, 'Search for '
       = f.text_field :name
     .actions#load_data
@@ -14,8 +19,10 @@
       =image_tag 'indicator.gif'
 
 
-.edit_data_container
+%h2
+  Step 2: Fill the boxes according to suggested results
 
+.edit_data_container
 
   = form_for(@expression) do |f|
     -if @expression.errors.any?
@@ -57,7 +64,8 @@
 
     .field
       = f.label :collection
-      = f.select :collection_id, signed_in? ? current_user.collections.map { |c| [c.name, c.id] } : []
+      = f.select :collection_id, Collection.all.map{|c| [c.name,c.id]}
+      - f.select :collection_id, signed_in? ? current_user.collections.map { |c| [c.name, c.id] } : []
 
 
     .field
@@ -68,5 +76,5 @@
 
 
     .actions
-      = f.submit 'Save'
+      = f.submit 'SAVE'
 

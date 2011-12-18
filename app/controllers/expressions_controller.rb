@@ -3,7 +3,7 @@ class ExpressionsController < ApplicationController
   require 'open-uri'
 
   active_scaffold :expression do |conf|
-    conf.columns = [:image, :name, :definition]
+    conf.columns = [:image, :name, :definition, :collection]
     # open links in new pages and as popups
     conf.create.link.page = true
     conf.create.link.popup = true

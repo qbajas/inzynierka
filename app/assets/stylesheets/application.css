@@ -10,4 +10,28 @@
 test-only{
       /*color:#7fffd4;*/
     /*margin: */
+    font-family: Candara, Arial, Helvetica, sans-serif;
+}
+
+.bottom_bar{
+    position: fixed;
+    bottom:0;
+    left:0;
+    background-color: #49779B;
+    opacity: 0.8;
+    width: 100%;
+    text-align: center;
+    padding: 4px;
+    color: white;
+}
+
+.bottom_bar a{
+    padding: 0 10px;
+    color:white;
+    text-decoration: none;
+    border-left: solid white 1px;
+    font-weight: bold;
+}
+.bottom_bar a:hover{
+    text-decoration: underline;
 }

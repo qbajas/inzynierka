@@ -1,3 +1,28 @@
+
+h1{
+    text-align:center;
+}
+
+h2{
+    margin:20px auto 10px auto;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    font-weight:normal;
+    a{
+        color: black;
+        margin-left:10px;
+    }
+    .desc{
+        color: gray;
+        font-size: 0.6em;
+        line-height: 0.6em;
+        margin-left:35px;
+    }
+
+}
+
+
+
 body {
   background-color: #fff;
   color: #333;
@@ -25,9 +50,9 @@ pre {
     /*color: #fff;*/
     /*background-color: #000; } }*/
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px; } }
+/*div {*/
+  /*&.field, &.actions {*/
+    /*margin-bottom: 10px; } }*/
 
 #notice {
   color: green; }

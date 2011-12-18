@@ -1,8 +1,23 @@
-%h2
-  =link_to 'Your collections', collections_path
 
-%h2
-  =link_to 'Your expressions', expressions_path
+.home_header
+  Quick start:
 
-%h2
-  =link_to 'Sign in', new_user_session_path
+.home_header
+  1.
+  =link_to 'Create expressions', new_expression_path
+  .desc
+    Create a few expressions which you want to learn.
+
+.home_header
+  2.
+  =link_to 'Learn expressions'
+  .desc
+    Practice makes perfect !
+
+.home_header
+  3.
+  =link_to 'Organize expressions into collections', collections_path
+  .desc
+    Group your expressions so that you can learn them easier and more efficiently.
+
+-link_to 'Sign in', new_user_session_path
