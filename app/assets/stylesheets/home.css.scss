@@ -2,3 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.home_header{
+    margin:auto;
+    font-family: Candara, Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    line-height: 2em;
+    margin-bottom: 20px;
+    a{
+        color: black;
+        margin-left:10px;
+    }
+    .desc{
+        color: gray;
+        font-size: 0.6em;
+        line-height: 0.6em;
+        margin-left:35px;
+    }
+
+}
+
