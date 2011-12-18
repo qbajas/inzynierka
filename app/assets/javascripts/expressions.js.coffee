@@ -13,22 +13,23 @@ $('img.imageSelect').live 'click', () ->
 
 $('#definitions .definition').live 'click', () ->
   textarea = $('textarea#expression_definition')
-  textarea.val( textarea.val() + this.innerText + "\n\n" )
+  textarea.val( textarea.val() + this.innerHTML.replace("\n","") + "\n" )
   this.className = this.className + ' inactive'
 
 $('#examples .example').live 'click', () ->
   textarea = $('textarea#expression_examples')
-  textarea.val( textarea.val() + this.innerText + "\n\n" )
+  textarea.val( textarea.val() + this.innerHTML.replace("\n","") + "\n" )
   this.className = this.className + ' inactive'
 
 $('#synonyms .synonym').live 'click', () ->
   textarea = $('textarea#expression_synonyms')
-  textarea.val( textarea.val() + this.innerText + "\n" )
+  textarea.val( textarea.val() + this.innerHTML.replace("\n","") + "" )
   this.className = this.className + ' inactive'
+
 
 $('#suggested_name .name').live 'click', () ->
   textarea = $('input#expression_name')[1]
-  textarea.value = this.innerText
+  textarea.value = this.innerHTML
   this.className = this.className + ' inactive'
 
 $('#load_data').live 'click', () ->
