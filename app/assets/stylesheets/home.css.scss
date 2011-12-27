@@ -11,7 +11,7 @@
     margin-bottom: 20px;
     a{
         color: black;
-        margin-left:10px;
+        /*margin-left:10px;*/
         text-decoration:none;
         &:hover{
             text-decoration:underline;
@@ -21,7 +21,10 @@
         color: gray;
         font-size: 0.6em;
         line-height: 0.6em;
-        margin-left:35px;
+    }
+    li{
+        list-style: decimal;
+        padding:10px;
     }
 
 }

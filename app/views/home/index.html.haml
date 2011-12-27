@@ -2,22 +2,25 @@
 .home_header
   Quick start:
 
-.home_header
-  1.
-  =link_to 'Create expressions', new_expression_path
-  .desc
-    Create a few expressions which you want to learn.
+%ul.home_header
 
-.home_header
-  2.
-  =link_to 'Learn expressions'
-  .desc
-    Practice makes perfect !
+  %li
+    =link_to 'Create expressions', new_expression_path
+    .desc
+      Create a few expressions which you want to learn.
 
-.home_header
-  3.
-  =link_to 'Organize expressions into collections', collections_path
-  .desc
-    Group your expressions so that you can learn them easier and more efficiently.
+
+  %li
+    =link_to 'Learn expressions'
+    .desc
+      Practice makes perfect !
+
+  %li
+    =link_to 'Manage collections ', collections_path
+    or
+    =link_to 'manage expressions', expressions_path
+    .desc
+      Group your expressions so that you can learn them easier and more efficiently.
+
 
 -link_to 'Sign in', new_user_session_path
