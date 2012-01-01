@@ -45,7 +45,7 @@ class ExpressionsController < ApplicationController
     @expression = Expression.new
     # set collection id from active scaffold params
     if !params[:eid].nil?
-      @collection_id = params[:eid].gsub("collections_","").gsub("_expressions","").to_i
+      @collection_id = params[:eid].gsub("collections_", "").gsub("_expressions", "").to_i
       collection = Collection.find_by_id(@collection_id)
       @expression.collection = collection
     end
@@ -64,12 +64,10 @@ class ExpressionsController < ApplicationController
     @expression = Expression.new(params[:expression])
     set_image_from_params
 
-    respond_to do |format|
-      if @expression.save
-        format.html { redirect_to @expression, :notice => 'Expression was successfully created.' }
-      else
-        format.html { render :action => "new" }
-      end
+    if @expression.save
+      redirect_to @expression, :notice => 'Expression was successfully created.'
+    else
+      render :action => "new"
     end
   end
 
