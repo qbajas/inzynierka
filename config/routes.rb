@@ -3,7 +3,8 @@ Learning::Application.routes.draw do
   # learning controller
   get "learn/index"
   get "learn/next"
-  get "learn/settings"
+  post "learn/settings"
+  post "learn/guess"
 
   resources :collections do as_routes end
   resources :expressions do as_routes end

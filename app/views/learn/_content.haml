@@ -2,9 +2,9 @@
   %tr
     %td.prev
       -if @expression.previous
-        =link_to 'PREVIOUS', {:action => :next, :id => @expression.previous.id} , :remote => true
+        =link_to 'PREVIOUS', {:action => :next, :id => @expression.previous.id, :direction => :prev} , :remote => true
     %td.expression
       = render :partial => 'expression'
     %td.next
       -if @expression.next
-        =link_to 'NEXT', {:action => :next, :id => @expression.next.id} , :remote => true
+        =link_to 'NEXT', {:action => :next, :id => @expression.next.id, :direction => :next} , :remote => true

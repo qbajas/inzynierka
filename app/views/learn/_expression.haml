@@ -3,21 +3,36 @@
 
 %p
   %b Definition:
-  = simple_format filter(@expression.definition, @expression.name)
+  = simple_format filter(@expression.definition, @expression.name, @correct.nil?)
 %p
   %b Examples:
-  = simple_format filter(@expression.examples, @expression.name)
+  = simple_format filter(@expression.examples, @expression.name, @correct.nil?)
 %p
   %b Synonyms:
-  = simple_format filter(@expression.synonyms, @expression.name)
+  = simple_format filter(@expression.synonyms, @expression.name, @correct.nil?)
 %p
   %b Notes:
-  = filter(@expression.notes, @expression.name)
+  = filter(@expression.notes, @expression.name, @correct.nil?)
 
 
 
-%p
-  Your guess:
-  =text_field_tag 'guess'
+.guess
+  - if @correct.nil?
+    Your guess:
+    =form_tag({:action => :guess}, {:remote => true}) do
+      =text_field_tag 'guess'
+      =hidden_field_tag 'id', @expression.id
+      = submit_tag 'Check !'
+  -elsif @correct == true
+    .correct
+      Your guess was CORRECT !
+    Expression is:
+    =@expression.name
+  -elsif @correct == false
+    .incorrect
+      Your guess was INCORRECT !
+    Expression is:
+    =@expression.name
+
 
 

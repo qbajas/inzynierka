@@ -3,6 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.guess{
+    text-align: center;
+    background: #EEE;
+    padding: 10px;
+
+  form{
+    display:inline;
+    }
+
+    .correct{
+        color: green;
+        font-weight: bold;
+    }
+
+    .incorrect{
+        color: crimson;
+        font-weight: bold;
+    }
+}
+
 .left{
     padding-right: 250px;
 
@@ -12,7 +32,7 @@
         overflow:hidden;
         padding-top:100px;
         a{
-            padding: 10px 20px;
+            padding: 10px 10px;
             padding-bottom:1000px;
             padding-top:100px;
             &:hover{
@@ -20,6 +40,8 @@
             }
             min-width:90px;
             background-color: #EEE;
+            color: black;
+            text-decoration: none;
         }
     }
 
@@ -29,7 +51,7 @@
         overflow:hidden;
         padding-top:100px;
         a{
-            padding: 10px 20px;
+            padding: 10px 25px;
             padding-bottom:1000px;
             padding-top:100px;
             &:hover{
@@ -37,21 +59,30 @@
             }
             background-color: #EEE;
             min-width:90px;
+            color: black;
+            text-decoration: none;
         }
     }
 
     .expression{
         width: 100%;
         padding: 20px;
+        padding-bottom:0;
     }
 }
 
+
+
 .right{
     float:right;
-    width:200px;
-    background: lightblue;
-    padding: 10px;
+    width:180px;
     padding-top: 0;
+
+    .box{
+        background: lightblue;
+        padding: 10px;
+        margin-bottom: 30px;
+        }
 
     input[type='checkbox']{
     }

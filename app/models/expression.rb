@@ -7,7 +7,8 @@ class Expression < ActiveRecord::Base
                         :tiny => "32x32",
                         :small => "64x64",
                         :medium => "200x200",
-                        :original => "500x500"
+                        :original => "400x400",
+                        :big => "600x600"
                     }
 
   belongs_to :collection
@@ -16,10 +17,12 @@ class Expression < ActiveRecord::Base
 #  check if collection for this expression belongs to user (or nil - an universal collection )
 
 
+  # next expression, used in learning
   def next
     Expression.where('id > ?', self.id).order('id ASC').limit(1).first
   end
 
+  # previous expression, used in learning
   def previous
     Expression.where('id < ?', self.id).order('id DESC').limit(1).first
   end

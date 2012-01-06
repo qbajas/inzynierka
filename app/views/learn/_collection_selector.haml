@@ -1,16 +1,17 @@
-%h3
-  Show collections:
+.box
+  %h3
+    Show collections:
 
-=form_tag :action => :settings do |f|
+  =form_tag :action => :settings do |f|
 
-  %p
-    =radio_button_tag "collection", 'all'
-    =label_tag 'collection_all', 'All'
-
-  -@collections.each do |collection|
     %p
-      =radio_button_tag "collection", "c_#{collection.id}"
-      =label_tag "collection_c_#{collection.id}","#{collection.name}"
+      =radio_button_tag "collection", 'all'
+      =label_tag 'collection_all', 'All'
+
+    -@collections.each do |collection|
+      %p
+        =radio_button_tag "collection", "c_#{collection.id}"
+        =label_tag "collection_c_#{collection.id}","#{collection.name}"
 
 
-  =submit_tag 'Save settings '
+    =submit_tag 'Save settings '

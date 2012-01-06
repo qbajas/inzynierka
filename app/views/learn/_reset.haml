@@ -1,0 +1,12 @@
+.box
+  %h3
+    Want to try again?
+
+
+  Here you can reset your history of guessed expression (this does not erase statistics)
+
+  =form_tag :action => :settings do |f|
+
+    =hidden_field_tag "reset"
+
+    =submit_tag 'Reset history'
