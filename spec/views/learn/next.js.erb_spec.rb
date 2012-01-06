@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "learn/next.html.haml" do
+describe "learn/next.js.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end
