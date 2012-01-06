@@ -26,7 +26,7 @@ gem 'wordnik'
 #gem 'wordnet'
 gem 'paperclip'
 gem 'active_scaffold'
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "devise"
 
 gem 'execjs'

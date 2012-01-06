@@ -1,0 +1,44 @@
+// Place all the styles related to the learn controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.left{
+    padding-right: 250px;
+
+    .prev{
+        min-width:100px;
+        a{
+            padding: 50px 20px;
+            &:hover{
+                background-color: yellow;
+            }
+        }
+    }
+
+    .next{
+        min-width:100px;
+        a{
+            padding: 50px 20px;
+            &:hover{
+                background-color: yellow;
+            }
+        }
+    }
+
+    .expression{
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+.right{
+    float:right;
+    width:200px;
+    background: lightblue;
+    padding: 10px;
+    padding-top: 0;
+
+    input[type='checkbox']{
+    }
+}

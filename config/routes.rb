@@ -1,10 +1,16 @@
 Learning::Application.routes.draw do
+
+  # learning controller
+  get "learn/index"
+  get "learn/next"
+  get "learn/settings"
+
   resources :collections do as_routes end
   resources :expressions do as_routes end
 
   devise_for :users
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :expressions do
     collection do

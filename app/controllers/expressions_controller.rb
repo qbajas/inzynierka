@@ -122,7 +122,12 @@ class ExpressionsController < ApplicationController
       @synonyms = synonym_response.first["words"]
     end
 
-    @audios = Wordnik.word.get_audio(@query).select { |a| a["audioType"]=="pronunciation" }.map { |a| a["fileUrl"] }
+    begin
+      @audios = Wordnik.word.get_audio(@query).select { |a| a["audioType"]=="pronunciation" }.map { |a| a["fileUrl"] }
+    rescue ServerError
+      p 'Error fetching audio '
+      @audios = []
+    end
   end
 
 

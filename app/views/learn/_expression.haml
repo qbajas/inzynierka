@@ -1,0 +1,23 @@
+%p
+  = image_tag @expression.image
+
+%p
+  %b Definition:
+  = simple_format filter(@expression.definition, @expression.name)
+%p
+  %b Examples:
+  = simple_format filter(@expression.examples, @expression.name)
+%p
+  %b Synonyms:
+  = simple_format filter(@expression.synonyms, @expression.name)
+%p
+  %b Notes:
+  = filter(@expression.notes, @expression.name)
+
+
+
+%p
+  Your guess:
+  =text_field_tag 'guess'
+
+

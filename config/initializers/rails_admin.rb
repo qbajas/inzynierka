@@ -9,11 +9,11 @@
 # RailsAdmin config file. Generated on October 07, 2011 23:23
 # See github.com/sferik/rails_admin for more informations
 
-RailsAdmin.config do |config|
+#RailsAdmin.config do |config|
   
-  config.current_user_method { current_user } # auto-generated
+  #config.current_user_method { current_user } # auto-generated
   
-  config.main_app_name { ['Learning', 'Admin'] } # auto-generated
+  #config.main_app_name { ['Learning', 'Admin'] } # auto-generated
   
   #  ==> Authentication (before_filter)
   # This is run inside the controller instance so you can setup any authentication you need to.
@@ -202,6 +202,6 @@ RailsAdmin.config do |config|
   #   update do; end
   #  end
 
-end
+#end
 
 # You made it this far? You're looking for something that doesn't exist! Add it to RailsAdmin and send us a Pull Request!

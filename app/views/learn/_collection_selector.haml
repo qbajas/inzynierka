@@ -1,0 +1,16 @@
+%h3
+  Show collections:
+
+=form_tag :action => :settings do |f|
+
+  %p
+    =check_box_tag 'all'
+    =label_tag 'all', 'All'
+
+  -@collections.each do |collection|
+    %p
+      =check_box_tag "c_#{collection.id}"
+      =label_tag "c_#{collection.id}","#{collection.name}"
+
+
+  =submit_tag 'Save settings '

@@ -1,0 +1,31 @@
+%h3
+  Show attributes:
+
+=form_tag :action => :settings do |f|
+
+  %p
+    =check_box_tag 'img'
+    =label_tag 'img', 'Image'
+
+
+  %p
+    =check_box_tag 'def'
+    =label_tag 'def','Definition'
+
+
+  %p
+    =check_box_tag 'syn'
+    =label_tag 'syn', 'Synonyms'
+
+
+  %p
+    =check_box_tag 'ex'
+    =label_tag 'ex', 'Examples'
+
+
+  %p
+    =check_box_tag 'notes'
+    =label_tag 'notes', 'Notes'
+
+
+  =submit_tag 'Save settings '
