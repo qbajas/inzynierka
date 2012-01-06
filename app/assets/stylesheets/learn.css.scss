@@ -7,22 +7,36 @@
     padding-right: 250px;
 
     .prev{
-        min-width:100px;
+        min-width:110px;
+        vertical-align:top;
+        overflow:hidden;
+        padding-top:100px;
         a{
-            padding: 50px 20px;
+            padding: 10px 20px;
+            padding-bottom:1000px;
+            padding-top:100px;
             &:hover{
-                background-color: yellow;
+                background-color: lightgray;
             }
+            min-width:90px;
+            background-color: #EEE;
         }
     }
 
     .next{
-        min-width:100px;
+        min-width:110px;
+        vertical-align:top;
+        overflow:hidden;
+        padding-top:100px;
         a{
-            padding: 50px 20px;
+            padding: 10px 20px;
+            padding-bottom:1000px;
+            padding-top:100px;
             &:hover{
-                background-color: yellow;
+                background-color: lightgray;
             }
+            background-color: #EEE;
+            min-width:90px;
         }
     }
 

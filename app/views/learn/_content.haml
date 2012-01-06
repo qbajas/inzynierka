@@ -1,10 +1,10 @@
 %table#content
   %tr
     %td.prev
-      -if prev_active
-        =link_to 'PREVIOUS', {:action => :next} , :remote => true
+      -if @expression.previous
+        =link_to 'PREVIOUS', {:action => :next, :id => @expression.previous.id} , :remote => true
     %td.expression
       = render :partial => 'expression'
     %td.next
-      -if next_active
-        =link_to 'NEXT', {:action => :next} , :remote => true
+      -if @expression.next
+        =link_to 'NEXT', {:action => :next, :id => @expression.next.id} , :remote => true

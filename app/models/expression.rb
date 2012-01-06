@@ -15,4 +15,13 @@ class Expression < ActiveRecord::Base
 #  before save:
 #  check if collection for this expression belongs to user (or nil - an universal collection )
 
+
+  def next
+    Expression.where('id > ?', self.id).order('id ASC').limit(1).first
+  end
+
+  def previous
+    Expression.where('id < ?', self.id).order('id DESC').limit(1).first
+  end
+
 end

@@ -4,13 +4,13 @@
 =form_tag :action => :settings do |f|
 
   %p
-    =check_box_tag 'all'
-    =label_tag 'all', 'All'
+    =radio_button_tag "collection", 'all'
+    =label_tag 'collection_all', 'All'
 
   -@collections.each do |collection|
     %p
-      =check_box_tag "c_#{collection.id}"
-      =label_tag "c_#{collection.id}","#{collection.name}"
+      =radio_button_tag "collection", "c_#{collection.id}"
+      =label_tag "collection_c_#{collection.id}","#{collection.name}"
 
 
   =submit_tag 'Save settings '
