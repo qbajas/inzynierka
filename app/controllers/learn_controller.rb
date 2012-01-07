@@ -7,6 +7,8 @@ class LearnController < ApplicationController
     @expression = Expression.first_for_learning(params[:id],  session[:last_expression])
     set_correct
     @collections = Collection.all
+    #  save position
+    session[:last_expression] = @expression.id
   end
 
   # GET/js next expression
