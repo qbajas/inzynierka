@@ -4,16 +4,7 @@ class LearnController < ApplicationController
 
   # GET start
   def index
-    if params[:id]
-      # id is in url
-      @expression = Expression.find params[:id]
-    elsif session[:last_expression]
-      # id saved in session
-      @expression = Expression.find session[:last_expression]
-    else
-      # first visit
-      @expression = Expression.first
-    end
+    @expression = Expression.first_for_learning(params[:id],  session[:last_expression])
     set_correct
     @collections = Collection.all
   end
@@ -46,6 +37,7 @@ class LearnController < ApplicationController
           end
         end
       when 'collection'
+    #    TODO
     end
 
     redirect_to :action => :index

@@ -36,7 +36,6 @@ gem 'fastercsv'
 group :test, :development do
   gem 'rspec-rails'
   gem "factory_girl_rails"
-  #gem 'railroady'
 end
 
 # Use unicorn as the web server
@@ -51,5 +50,10 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+end
+
+group :development do
+#gem 'railroady'
+# gem 'rails-erd'
 end
 

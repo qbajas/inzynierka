@@ -19,9 +19,18 @@
   %b Notes:
   = @expression.notes
 
-= link_to 'Edit', edit_expression_path(@expression)
-\|
-= link_to 'Delete', expression_path(@expression), :method => :delete, :confirm => "Are you sure ?"
-\|
-= link_to 'Back', expressions_path
+
+-if @extended
+
+  %hr
+
+  .actions
+    %h3
+      What do you want to do now?
+    .choices
+      =link_to 'Create another expression', new_expression_path
+      =link_to 'Learn this expression', learn_index_path(:id => @expression.id)
+      =link_to 'Edit this expression', edit_expression_path(@expression)
+      =link_to 'Delete this expression', expression_path(@expression), :method => :delete, :confirm => "Are you sure ?"
+      =link_to 'View all expression', expressions_path
 

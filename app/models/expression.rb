@@ -16,7 +16,6 @@ class Expression < ActiveRecord::Base
 #  before save:
 #  check if collection for this expression belongs to user (or nil - an universal collection )
 
-
 # next expression, used in learning
   def next
     Expression.where('id > ?', self.id).order('id ASC').limit(1).first
@@ -30,6 +29,20 @@ class Expression < ActiveRecord::Base
   # use this names in views of learn controller
   def self.list_of_attributes_to_learn
     ['image', 'definition', 'synonyms', 'examples', 'notes']
+  end
+
+  # starting expression for learn controller
+  def self.first_for_learning(id, last_expression)
+    if id
+      # id is in url
+      @expression = Expression.find id
+    elsif last_expression
+      # id saved in session
+      @expression = Expression.find last_expression
+    else
+      # first visit
+      @expression = Expression.first
+    end
   end
 
 end
