@@ -10,6 +10,9 @@ class CollectionsController < ApplicationController
     #conf.actions << :nested
     # NOT WORKING - WHY ?!
     conf.nested.add_link 'Show expressions', [:expressions]
+
+    # without this, delete does not work in production, another wtf
+    conf.delete.link.page = true
   end
 
   protected

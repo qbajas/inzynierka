@@ -3,7 +3,7 @@ class ExpressionsController < ApplicationController
   require 'open-uri'
 
   active_scaffold :expression do |conf|
-    conf.actions.exclude :delete
+    #conf.actions.exclude :delete
     conf.columns = [:image, :name, :definition, :collection]
     # open links in new pages and as popups
     conf.create.link.page = true
@@ -12,8 +12,10 @@ class ExpressionsController < ApplicationController
 
     conf.update.link.page = true
     conf.update.link.popup = true
-
     #conf.delete.link.inline = false
+
+    # without this, delete does not work in production, another wtf
+    conf.delete.link.page = true
   end
 
   # active scaffold action
@@ -87,18 +89,18 @@ class ExpressionsController < ApplicationController
     end
   end
 
-  # active scaffold action does not work !
+  # active scaffold action
   # DELETE /expressions/1
   # DELETE /expressions/1.json
-  def destroy
-    @expression = Expression.find(params[:id])
-    @expression.destroy
-
-    respond_to do |format|
-      format.html { redirect_to expressions_url, :notice => 'Expression was successfully deleted.' }
-      format.json { head :ok }
-    end
-  end
+  #def destroy
+  #  @expression = Expression.find(params[:id])
+  #  @expression.destroy
+  #
+  #  respond_to do |format|
+  #    format.html { redirect_to expressions_url, :notice => 'Expression was successfully deleted.' }
+  #    format.json { head :ok }
+  #  end
+  #end
 
 
   # POST /expressions/load_data
@@ -124,8 +126,9 @@ class ExpressionsController < ApplicationController
     end
 
     begin
+      # audio expires after a few seconds, so it would have to save it as a file right after a query
       @audios = Wordnik.word.get_audio(@query).select { |a| a["audioType"]=="pronunciation" }.map { |a| a["fileUrl"] }
-    rescue ServerError
+    rescue #ServerError
       p 'Error fetching audio '
       @audios = []
     end

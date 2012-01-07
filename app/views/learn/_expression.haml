@@ -1,18 +1,26 @@
-%p
-  = image_tag @expression.image
+-if @attr_visible['image']
+  %p
+    = image_tag @expression.image
 
-%p
-  %b Definition:
-  = simple_format filter(@expression.definition, @expression.name, @correct.nil?)
-%p
-  %b Examples:
-  = simple_format filter(@expression.examples, @expression.name, @correct.nil?)
-%p
-  %b Synonyms:
-  = simple_format filter(@expression.synonyms, @expression.name, @correct.nil?)
-%p
-  %b Notes:
-  = filter(@expression.notes, @expression.name, @correct.nil?)
+-if @attr_visible['definition']
+  %p
+    %b Definition:
+    = simple_format filter(@expression.definition, @expression.name, @correct.nil?)
+
+-if @attr_visible['examples']
+  %p
+    %b Examples:
+    = simple_format filter(@expression.examples, @expression.name, @correct.nil?)
+
+-if @attr_visible['synonyms']
+  %p
+    %b Synonyms:
+    = simple_format filter(@expression.synonyms, @expression.name, @correct.nil?)
+
+-if @attr_visible['notes']
+  %p
+    %b Notes:
+    = filter(@expression.notes, @expression.name, @correct.nil?)
 
 
 

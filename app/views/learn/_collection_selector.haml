@@ -13,5 +13,6 @@
         =radio_button_tag "collection", "c_#{collection.id}"
         =label_tag "collection_c_#{collection.id}","#{collection.name}"
 
+    =hidden_field_tag :type, 'collection'
 
     =submit_tag 'Save settings '

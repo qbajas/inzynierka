@@ -7,6 +7,6 @@
 
   =form_tag :action => :settings do |f|
 
-    =hidden_field_tag "reset"
+    =hidden_field_tag :type, 'reset'
 
     =submit_tag 'Reset history'

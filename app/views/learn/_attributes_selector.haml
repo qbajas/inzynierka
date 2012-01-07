@@ -5,28 +5,30 @@
   =form_tag :action => :settings do |f|
 
     %p
-      =check_box_tag 'img', 1, true
-      =label_tag 'img', 'Image'
+      =check_box_tag 'image', 1, @attr_visible['image']
+      =label_tag 'image', 'Image'
 
 
     %p
-      =check_box_tag 'def', 1, true
-      =label_tag 'def','Definition'
+      =check_box_tag 'definition', 1, @attr_visible['definition']
+      =label_tag 'definition','Definition'
 
 
     %p
-      =check_box_tag 'syn', 1, true
-      =label_tag 'syn', 'Synonyms'
+      =check_box_tag 'synonyms', 1, @attr_visible['synonyms']
+      =label_tag 'synonyms', 'Synonyms'
 
 
     %p
-      =check_box_tag 'ex', 1, true
-      =label_tag 'ex', 'Examples'
+      =check_box_tag 'examples', 1, @attr_visible['examples']
+      =label_tag 'examples', 'Examples'
 
 
     %p
-      =check_box_tag 'notes',1, true
+      =check_box_tag 'notes',1, @attr_visible['notes']
       =label_tag 'notes', 'Notes'
+
+    =hidden_field_tag :type, 'attributes'
 
 
     =submit_tag 'Save settings '

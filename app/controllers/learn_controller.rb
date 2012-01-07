@@ -1,5 +1,7 @@
 class LearnController < ApplicationController
 
+  before_filter :set_attributes_settings
+
   # GET start
   def index
     if params[:id]
@@ -32,13 +34,24 @@ class LearnController < ApplicationController
 
   # POST settings change
   def settings
-    if params[:reset]
-      session[:guessed] = nil
+    case params[:type]
+      when 'reset'
+        session[:guessed] = nil
+      when 'attributes'
+        # saves hidden attributes to a session
+        session[:hidden_attributes] = []
+        Expression.list_of_attributes_to_learn.each do |attr|
+          if !params[attr]
+            session[:hidden_attributes] << attr
+          end
+        end
+      when 'collection'
     end
+
     redirect_to :action => :index
   end
 
-  # POST guess a name of an expression
+# POST guess a name of an expression
   def guess
     @expression = Expression.find params[:id]
     @correct = params[:guess].strip == @expression.name.strip
@@ -51,15 +64,25 @@ class LearnController < ApplicationController
 
   private
 
-  # sets @correct
+# sets @correct
   def set_correct
     # if @correct is nil, it means user haven't made a guess
     # otherwise @correct is the result of a guess
     if session[:guessed]
       @correct = session[:guessed][@expression.id]
-    #  statistics
-      @correct_count = session[:guessed].select{|k,v| v == true}.size
-      @incorrect_count = session[:guessed].select{|k,v| v == false}.size
+      #  statistics
+      @correct_count = session[:guessed].select { |k, v| v == true }.size
+      @incorrect_count = session[:guessed].select { |k, v| v == false }.size
+    end
+  end
+
+  # sets @attr_visible, basing on session
+  def set_attributes_settings
+    @attr_visible = Hash.new true
+    if session[:hidden_attributes]
+      session[:hidden_attributes].each do |attr|
+        @attr_visible[attr] = false
+      end
     end
   end
 
