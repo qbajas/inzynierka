@@ -3,6 +3,7 @@ class ExpressionsController < ApplicationController
   require 'open-uri'
 
   active_scaffold :expression do |conf|
+    conf.actions.exclude :delete
     conf.columns = [:image, :name, :definition, :collection]
     # open links in new pages and as popups
     conf.create.link.page = true
@@ -89,15 +90,15 @@ class ExpressionsController < ApplicationController
   # active scaffold action
   # DELETE /expressions/1
   # DELETE /expressions/1.json
-  #def destroy
-  #  @expression = Expression.find(params[:id])
-  #  @expression.destroy
-  #
-  #  respond_to do |format|
-  #    format.html { redirect_to expressions_url }
-  #    format.json { head :ok }
-  #  end
-  #end
+  def destroy
+    @expression = Expression.find(params[:id])
+    @expression.destroy
+
+    respond_to do |format|
+      format.html { redirect_to expressions_url, :notice => 'Expression was successfully deleted.' }
+      format.json { head :ok }
+    end
+  end
 
 
   # POST /expressions/load_data
