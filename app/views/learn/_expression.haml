@@ -27,12 +27,22 @@
     .correct
       Your guess was CORRECT !
     Expression is:
-    =@expression.name
+    %b
+      =@expression.name
   -elsif @correct == false
     .incorrect
       Your guess was INCORRECT !
     Expression is:
-    =@expression.name
+    %b
+      =@expression.name
+
+  -if @correct_count && @incorrect_count
+    .correctness
+      Your correctness is
+      =(@correct_count.to_f/(@correct_count+@incorrect_count)*100).round(2)
+      \%
+
+
 
 
 

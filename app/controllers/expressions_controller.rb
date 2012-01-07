@@ -87,7 +87,7 @@ class ExpressionsController < ApplicationController
     end
   end
 
-  # active scaffold action
+  # active scaffold action does not work !
   # DELETE /expressions/1
   # DELETE /expressions/1.json
   def destroy

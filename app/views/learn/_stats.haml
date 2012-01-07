@@ -1,0 +1,16 @@
+.box
+  %h3
+    Your statistics
+
+  %p
+    Correct:
+    =@correct_count
+
+  %p
+    Incorrect:
+    =@incorrect_count
+
+  %p
+    Correctness:
+    =@correct_count.to_f/(@correct_count+@incorrect_count)*100
+    \%

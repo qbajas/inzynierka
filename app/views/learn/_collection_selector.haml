@@ -5,7 +5,7 @@
   =form_tag :action => :settings do |f|
 
     %p
-      =radio_button_tag "collection", 'all'
+      =radio_button_tag "collection", 'all', true
       =label_tag 'collection_all', 'All'
 
     -@collections.each do |collection|

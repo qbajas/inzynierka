@@ -45,6 +45,7 @@ class LearnController < ApplicationController
     # save in session hash
     session[:guessed] = {} if !session[:guessed]
     session[:guessed].merge!({@expression.id => @correct})
+    set_correct
   end
 
 
@@ -56,6 +57,9 @@ class LearnController < ApplicationController
     # otherwise @correct is the result of a guess
     if session[:guessed]
       @correct = session[:guessed][@expression.id]
+    #  statistics
+      @correct_count = session[:guessed].select{|k,v| v == true}.size
+      @incorrect_count = session[:guessed].select{|k,v| v == false}.size
     end
   end
 
