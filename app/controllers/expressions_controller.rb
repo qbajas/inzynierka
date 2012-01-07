@@ -38,8 +38,6 @@ class ExpressionsController < ApplicationController
   # GET /expressions/1.json
   def show
     @expression = Expression.find(params[:id])
-
-
   end
 
   # GET /expressions/new

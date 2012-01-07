@@ -61,6 +61,8 @@ class LearnController < ApplicationController
     set_correct
   end
 
+  # session[:guessed] holds hash of ids of guessed expressions and boolean results of a guess
+  # session[:hidden_attributes] is an array of strings holding attributes not visible in learning
 
   private
 
