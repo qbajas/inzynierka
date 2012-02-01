@@ -37,6 +37,9 @@ Spork.prefork do
 
     # include devise helpers
     config.include Devise::TestHelpers, :type => :controller
+
+    # ?
+    # config.global_fixtures = :collections
   end
 end
 

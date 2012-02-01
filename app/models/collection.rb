@@ -9,6 +9,12 @@ class Collection < ActiveRecord::Base
   belongs_to :user
 
 
+  # common collection for not registered users
+  def self.common
+    self.where(:user_id => nil).first
+  end
+
+
   # collections available for learning
   def self.for_learning(user)
     collections = self.find_all_by_user_id(nil)
