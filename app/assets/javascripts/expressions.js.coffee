@@ -8,7 +8,7 @@ $('img.imageSelect').live 'click', () ->
     image.className = 'imageSelect'
   this.className= 'imageSelected'
   $('input#image_url[type=hidden]').attr('value', this.getAttribute('image_url') )
-  $('#image_preview').html('<img src="' + this.getAttribute('image_url') + '" style="max-height:500px; max-width:500px;" />')
+  $('#image_preview').html('<img src="' + this.getAttribute('image_url') + '" style="max-height:400px; max-width:400px;" />')
 
 
 $('#definitions .definition').live 'click', () ->

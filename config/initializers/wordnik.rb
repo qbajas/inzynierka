@@ -1,26 +1,26 @@
 # windows hack
-module Wordnik
-  class Configuration
-
-    # Defaults go in here..
-    def initialize
-      @response_format = :json
-      @scheme = 'http'
-      @host = 'api.wordnik.com'
-      @base_path = '/v4'
-      @user_agent = "ruby-#{Wordnik::VERSION}"
-      # Build the default set of resource names from the filenames of the API documentation
-      begin
-        api_docs_path = File.join(File.dirname(__FILE__), "../../api_docs")
-        @resource_names = ['word', 'words']
-        true
-      rescue
-        raise "Problem loading the resource files in ./api_docs/"
-      end
-    end
-
-  end
-end
+#module Wordnik
+#  class Configuration
+#
+#    # Defaults go in here..
+#    def initialize
+#      @response_format = :json
+#      @scheme = 'http'
+#      @host = 'api.wordnik.com'
+#      @base_path = '/v4'
+#      @user_agent = "ruby-#{Wordnik::VERSION}"
+#      # Build the default set of resource names from the filenames of the API documentation
+#      begin
+#        api_docs_path = File.join(File.dirname(__FILE__), "../../api_docs")
+#        @resource_names = ['word', 'words']
+#        true
+#      rescue
+#        raise "Problem loading the resource files in ./api_docs/"
+#      end
+#    end
+#
+#  end
+#end
 
 # configuration
 Wordnik.configure do |config|

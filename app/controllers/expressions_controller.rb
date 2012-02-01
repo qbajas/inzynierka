@@ -51,8 +51,6 @@ class ExpressionsController < ApplicationController
       collection = Collection.find_by_id(@collection_id)
       @expression.collection = collection
     end
-
-
   end
 
   # GET /expressions/1/edit
@@ -110,18 +108,18 @@ class ExpressionsController < ApplicationController
 
     @definitions = Wordnik.word.get_definitions(@query, :useCanonical => 'true').map { |d| d["text"] }
 
-    examples = Wordnik.word.get_examples(@query, :useCanonical => 'true')["examples"]
-    if examples.nil?
-      @examples = []
-    else
+    begin
+      examples = Wordnik.word.get_examples(@query, :useCanonical => 'true')["examples"]
       @examples = examples.map { |e| e["text"] }
+    rescue
+      @examples = []
     end
 
-    synonym_response = Wordnik.word.get_related_words(@query, :type => 'synonym', :useCanonical => 'true')
-    if synonym_response.empty?
-      @synonyms = []
-    else
+    begin
+      synonym_response = Wordnik.word.get_related_words(@query, :type => 'synonym', :useCanonical => 'true')
       @synonyms = synonym_response.first["words"]
+    rescue
+      @synonyms = []
     end
 
     begin
