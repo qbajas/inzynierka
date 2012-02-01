@@ -17,6 +17,16 @@ class CollectionsController < ApplicationController
 
   protected
 
+  # show only user's collections
+  def conditions_for_collection
+    if current_user
+      uid = current_user.id
+    else
+      uid = -1 # none
+    end
+    "user_id =#{uid}"
+  end
+
   # active scaffold - save user for a collection
   def before_create_save(record)
     record.user = current_user

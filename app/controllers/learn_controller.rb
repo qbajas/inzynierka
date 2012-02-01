@@ -6,7 +6,7 @@ class LearnController < ApplicationController
   def index
     @expression = Expression.first_for_learning(params[:id],  session[:last_expression])
     set_correct
-    @collections = Collection.all
+    @collections = Collection.for_learning(current_user)
     #  save position
     session[:last_expression] = @expression.id
   end

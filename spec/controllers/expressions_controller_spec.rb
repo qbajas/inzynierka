@@ -27,6 +27,7 @@ describe ExpressionsController do
     {:name => 'word1'}
   end
 
+
   describe "GET index" do
     it "assigns all expressions as @records" do
       expression = Expression.create! valid_attributes
@@ -34,6 +35,19 @@ describe ExpressionsController do
       get :index
       assigns(:records).should eq([expression])
     end
+
+    it 'doesnt show others expressions' do
+      c1 = FactoryGirl.create(:collection, :user_id => 1)
+      c1.expressions << e1 = FactoryGirl.create(:expression)
+
+      c2 = FactoryGirl.create(:collection, :user_id => nil)
+      c2.expressions << e2 = FactoryGirl.create(:expression)
+      
+      get :index
+      assigns(:records).should == [e2] 
+    end
+
+
   end
 
   describe "GET show" do

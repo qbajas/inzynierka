@@ -134,6 +134,17 @@ class ExpressionsController < ApplicationController
 
   private
 
+
+  # show only user's expressions
+  def conditions_for_collection
+    if current_user
+      uid = current_user.id
+      "collections.user_id =#{uid}"
+    else
+      "collections.user_id IS NULL"
+    end
+  end
+
   # saves paperclip image from external source
   def set_image_from_params
     @expression.image = open(params[:image_url]) unless params[:image_url].empty?
