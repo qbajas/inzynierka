@@ -9,7 +9,8 @@ module ExpressionsHelper
     if current_user
       current_user.collections.map { |c| [c.name, c.id] }
     else
-      nil
+      c = Collection.common
+      [[c.name, c.id]]
     end
   end
 

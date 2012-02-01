@@ -64,8 +64,7 @@
 
     .field
       = f.label :collection
-      = f.select :collection_id, Collection.all.map{|c| [c.name,c.id]}
-      - f.select :collection_id, signed_in? ? current_user.collections.map { |c| [c.name, c.id] } : []
+      = f.select :collection_id, collections_for_select
 
 
     .field
