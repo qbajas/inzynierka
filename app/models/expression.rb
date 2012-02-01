@@ -41,7 +41,7 @@ class Expression < ActiveRecord::Base
       @expression = Expression.find last_expression
     else
       # first visit
-      @expression = Expression.first
+      @expression = Expression.last
     end
   end
 

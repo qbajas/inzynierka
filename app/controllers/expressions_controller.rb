@@ -38,7 +38,7 @@ class ExpressionsController < ApplicationController
   # GET /expressions/1.json
   def show
     @expression = Expression.find(params[:id])
-    @extended = true if !request.xhr?
+    @extended = true #if !request.xhr?
   end
 
   # GET /expressions/new
