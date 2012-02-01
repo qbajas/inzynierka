@@ -24,10 +24,10 @@ class Collection < ActiveRecord::Base
     # collections << self.find_all_by_user_id(nil)
     # collections.flatten
     if user
-      self.where("user_id = #{user.id}").order('id DESC') | self.where("user_id IS NULL")\
-      | self.where("user_id != #{user.id}").order('id DESC')
+      self.where("user_id = #{user.id}").order('id DESC').joins(:expressions) | self.where("user_id IS NULL").joins(:expressions)\
+      | self.where("user_id != #{user.id}").order('id DESC').joins(:expressions)
     else
-      self.order('id DESC')
+      self.order('id DESC').joins(:expressions)
     end
   end
 
