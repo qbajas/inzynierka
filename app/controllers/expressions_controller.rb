@@ -137,12 +137,18 @@ class ExpressionsController < ApplicationController
 
   # show only user's expressions
   def conditions_for_collection
+#    @active_scaffold_joins << :collection unless @active_scaffold_joins.include? :collection
     if current_user
       uid = current_user.id
       "collections.user_id =#{uid}"
     else
       "collections.user_id IS NULL"
     end
+  end
+
+  # join for above method
+  def joins_for_collection
+    [:collection]
   end
 
   # saves paperclip image from external source
