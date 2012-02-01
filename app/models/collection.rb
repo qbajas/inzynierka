@@ -27,7 +27,7 @@ class Collection < ActiveRecord::Base
       self.where("user_id = #{user.id}").order('id DESC').joins(:expressions) | self.where("user_id IS NULL").joins(:expressions)\
       | self.where("user_id != #{user.id}").order('id DESC').joins(:expressions)
     else
-      self.order('id DESC').joins(:expressions)
+      self.where("user_id IS NULL").joins(:expressions) |  self.where("user_id IS NOT NULL").order('id DESC').joins(:expressions)
     end
   end
 
