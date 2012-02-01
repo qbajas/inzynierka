@@ -31,7 +31,7 @@ describe CollectionsController do
     }
   end
 
-  fixtures :collections
+  fixtures :collections # include common collection
 
   describe "GET index" do
     
@@ -44,7 +44,13 @@ describe CollectionsController do
     end
 
     it "shows only user's collection (LOGGED USER)" do
-      pending
+      user = Factory.create(:user)
+      sign_in user
+
+      c1 = FactoryGirl.create(:collection, :user => user)
+
+      get :index
+      assigns(:records).should == [c1] 
     end
 
 

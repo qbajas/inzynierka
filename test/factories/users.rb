@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
-      email "aa@aa.pl"
+      email {"aa#{rand(10)}@aa.pl"}
       password "abcabc"
     end
 end

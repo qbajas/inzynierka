@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
     conf.delete.link.page = true
   end
 
-  protected
+  private
 
   # show only user's collections
   def conditions_for_collection

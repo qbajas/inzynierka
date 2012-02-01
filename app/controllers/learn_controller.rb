@@ -4,7 +4,7 @@ class LearnController < ApplicationController
 
   # GET start
   def index
-    @expression = Expression.first_for_learning(params[:id],  session[:last_expression])
+    @expression = Expression.first_for_learning(params[:id],  session[:last_expression], session[:chosen_collection])
     set_correct
     @collections = Collection.for_learning(current_user)
     #  save position
@@ -39,7 +39,8 @@ class LearnController < ApplicationController
           end
         end
       when 'collection'
-    #    TODO
+        session[:chosen_collection] = params[:collection].to_i
+        session[:last_expression] = nil # clear last expression to start with a new expression
     end
 
     redirect_to :action => :index

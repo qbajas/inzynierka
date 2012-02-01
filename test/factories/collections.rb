@@ -6,4 +6,8 @@ FactoryGirl.define do
       user_id 1
       description "MyText"
     end
+
+  factory :common_collection, :class => Collection do
+    name "Common"
+  end
 end

@@ -27,7 +27,7 @@ describe ExpressionsController do
     {:name => 'word1'}
   end
 
-  fixtures :collections
+  fixtures :collections # include common collection
 
   describe "GET index" do
 
@@ -44,7 +44,18 @@ describe ExpressionsController do
     end
 
     it 'shows expressions belonging to a user (LOGGED USER)' do
-      pending
+      user = Factory.create(:user)
+      sign_in user
+      
+      c1 = FactoryGirl.build(:collection, :user => user)
+      c1.save
+      c1.expressions << e1 = FactoryGirl.create(:expression)
+
+      c2 = Collection.common
+      c2.expressions << e2 = FactoryGirl.create(:expression)
+      
+      get :index
+      assigns(:records).should == [e1] 
     end
 
   end

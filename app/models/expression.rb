@@ -18,12 +18,12 @@ class Expression < ActiveRecord::Base
 
 # next expression, used in learning
   def next
-    Expression.where('id > ?', self.id).order('id ASC').limit(1).first
+    Expression.where('id > ? AND collection_id = ?', self.id, self.collection_id).order('id ASC').limit(1).first
   end
 
   # previous expression, used in learning
   def previous
-    Expression.where('id < ?', self.id).order('id DESC').limit(1).first
+    Expression.where('id < ? AND collection_id = ?', self.id, self.collection_id).order('id DESC').limit(1).first
   end
 
   # use this names in views of learn controller
@@ -32,13 +32,15 @@ class Expression < ActiveRecord::Base
   end
 
   # starting expression for learn controller
-  def self.first_for_learning(id, last_expression)
+  def self.first_for_learning(id, last_expression, collection_id)
     if id
       # id is in url
       @expression = Expression.find id
     elsif last_expression
       # id saved in session
       @expression = Expression.find last_expression
+    elsif collection_id
+      @expression = Collection.find(collection_id).expressions.last
     else
       # first visit
       @expression = Expression.last

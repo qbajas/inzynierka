@@ -17,11 +17,18 @@ class Collection < ActiveRecord::Base
 
   # collections available for learning
   def self.for_learning(user)
-    collections = self.find_all_by_user_id(nil)
-    if !user.nil?
-      collections << user.collections
+    # collections = []
+    # if !user.nil?
+    #   collections << user.collections
+    # end
+    # collections << self.find_all_by_user_id(nil)
+    # collections.flatten
+    if user
+      self.where("user_id = #{user.id}").order('id DESC') | self.where("user_id IS NULL")\
+      | self.where("user_id != #{user.id}").order('id DESC')
+    else
+      self.order('id DESC')
     end
-    collections.flatten
   end
 
 end
