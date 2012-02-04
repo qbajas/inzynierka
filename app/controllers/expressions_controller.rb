@@ -116,7 +116,7 @@ class ExpressionsController < ApplicationController
     end
 
     begin
-      synonym_response = Wordnik.word.get_related_words(@query, :type => 'synonym', :useCanonical => 'true')
+      synonym_response = Wordnik.word.get_related(@query, :type => 'synonym', :useCanonical => 'true')
       @synonyms = synonym_response.first["words"]
     rescue
       @synonyms = []
