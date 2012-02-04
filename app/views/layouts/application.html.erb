@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Learning English</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= yield(:head) %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Learning English</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= yield(:head) %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<p class="alert"><%= alert %></p>
+    <%= render :partial => 'shared/bottom_bar' %>
 
-<%= yield %>
+    <p class="alert"><%= alert %></p>
 
-<div style="height: 50px;"></div>
+    <%= yield %>
 
-<%= render :partial => 'shared/bottom_bar' %>
+    <div style="height: 50px;"></div>
 
-</body>
+
+
+  </body>
 </html>

@@ -5,15 +5,16 @@
 %ul.home_header
 
   %li
+    =link_to 'Learn expressions', :controller => :learn
+    .desc
+      Learn by guessing what words are presented.
+
+
+  %li
     =link_to 'Create expressions', new_expression_path
     .desc
       Create a few expressions which you want to learn.
 
-
-  %li
-    =link_to 'Learn expressions', :controller => :learn
-    .desc
-      Practice makes perfect !
 
   %li
     =link_to 'Manage expressions', expressions_path
@@ -23,4 +24,5 @@
       Manage data and group your expressions so that you can learn them easier and more efficiently.
 
 
-=link_to 'Sign in', new_user_session_path
+= render :partial => 'footer'
+

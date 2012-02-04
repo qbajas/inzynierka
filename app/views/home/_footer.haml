@@ -1,0 +1,13 @@
+%div{:class => 'home_footer'}
+
+  %table
+    %tr
+      %td
+        - if !current_user
+          =link_to 'Sign in', new_user_session_path
+        -else
+          Logged as 
+          = current_user.email
+      %td
+        =link_to 'FAQ', :action => 'faq'
+

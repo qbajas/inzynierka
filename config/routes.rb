@@ -19,7 +19,7 @@ Learning::Application.routes.draw do
     end
   end
 
-  #get "home/index"
+  get "home/faq"
 
 
   # The priority is based upon order of creation:

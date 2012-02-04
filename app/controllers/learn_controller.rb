@@ -7,8 +7,12 @@ class LearnController < ApplicationController
     @expression = Expression.first_for_learning(params[:id],  session[:last_expression], session[:chosen_collection])
     set_correct
     @collections = Collection.for_learning(current_user)
-    #  save position
-    session[:last_expression] = @expression.id
+    if @expression
+      #  save position
+      session[:last_expression] = @expression.id  
+    else
+      render :text => 'Create some expressions first'
+    end
   end
 
   # GET/js next expression
