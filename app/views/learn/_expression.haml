@@ -28,15 +28,17 @@
   - if @correct.nil?
     Your guess:
     =form_tag({:action => :guess}, {:remote => true}) do
-      =text_field_tag 'guess'
+      =text_field_tag 'guess', show_first_letter(@attr_visible['first_letter'], @expression)
       =hidden_field_tag 'id', @expression.id
       = submit_tag 'Check !'
+
   -elsif @correct == true
     .correct
       Your guess was CORRECT !
     Expression is:
     %b
       =@expression.name
+
   -elsif @correct == false
     .incorrect
       Your guess was INCORRECT !

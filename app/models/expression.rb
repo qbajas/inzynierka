@@ -28,7 +28,7 @@ class Expression < ActiveRecord::Base
 
   # use this names in views of learn controller
   def self.list_of_attributes_to_learn
-    ['image', 'definition', 'synonyms', 'examples', 'notes']
+    ['image', 'definition', 'synonyms', 'examples', 'notes', 'first_letter']
   end
 
   # starting expression for learn controller

@@ -26,6 +26,11 @@
       =check_box_tag 'notes',1, @attr_visible['notes']
       =label_tag 'notes', 'Notes'
 
+    %p
+      =check_box_tag 'first_letter',1, @attr_visible['first_letter']
+      =label_tag 'first_letter'
+
+
     =hidden_field_tag :type, 'attributes'
 
 

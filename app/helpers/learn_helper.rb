@@ -13,4 +13,14 @@ module LearnHelper
     end
   end
 
+
+  # fills guess box with first letter or empty string
+  def show_first_letter(show, expression)
+    if show
+      expression.name.first
+    else
+      ""
+    end
+  end
+
 end
