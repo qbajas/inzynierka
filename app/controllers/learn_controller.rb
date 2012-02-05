@@ -84,7 +84,7 @@ class LearnController < ApplicationController
     @attr_visible['notes'] = false
     @attr_visible['first_letter'] = false
 
-    # is user has changed preferences
+    # if user has changed preferences
     if session[:hidden_attributes]
       @attr_visible = Hash.new true
       session[:hidden_attributes].each do |attr|

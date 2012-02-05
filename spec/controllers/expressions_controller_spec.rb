@@ -38,7 +38,7 @@ describe ExpressionsController do
 
       c2 = Collection.common
       c2.expressions << e2 = FactoryGirl.create(:expression)
-      
+
       get :index
       assigns(:records).should == [e2] 
     end
@@ -46,14 +46,14 @@ describe ExpressionsController do
     it 'shows expressions belonging to a user (LOGGED USER)' do
       user = Factory.create(:user)
       sign_in user
-      
+
       c1 = FactoryGirl.build(:collection, :user => user)
       c1.save
       c1.expressions << e1 = FactoryGirl.create(:expression)
 
       c2 = Collection.common
       c2.expressions << e2 = FactoryGirl.create(:expression)
-      
+
       get :index
       assigns(:records).should == [e1] 
     end
@@ -165,18 +165,46 @@ describe ExpressionsController do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested expression" do
-      expression = Expression.create! valid_attributes
-      expect {
-        delete :destroy, :id => expression.id.to_s
-      }.to change(Expression, :count).by(-1)
+
+    before(:each) do
+      @expression = Factory.create(:expression)
     end
 
-    it "redirects to the expressions list" do
-      expression = Expression.create! valid_attributes
-      delete :destroy, :id => expression.id.to_s
-      response.should redirect_to(expressions_url)
+    describe 'logged user' do
+
+      before(:each) do
+        @user = Factory.create(:user)
+        sign_in @user
+      end
+
+      it "destroys the requested expression " do
+        expect {
+          delete :destroy, :id => @expression.id.to_s
+        }.to change(Expression, :count).by(-1)
+      end
+
+      it "redirects to the expressions list" do
+        delete :destroy, :id => @expression.id.to_s
+        response.should redirect_to(expressions_url)
+      end
     end
+
+    # if you want to disallow not-registered users deleting records, change this
+    describe 'not logged user' do
+
+      it "destroys the requested expression " do
+        expect {
+          delete :destroy, :id => @expression.id.to_s
+        }.to change(Expression, :count).by(-1)
+      end
+
+      it "redirects to the expressions list" do
+        delete :destroy, :id => @expression.id.to_s
+        response.should redirect_to(expressions_url)
+      end
+    end
+
+
   end
 
 end

@@ -151,6 +151,11 @@ class ExpressionsController < ApplicationController
     [:collection]
   end
 
+  # allow delete only registered users
+  #def delete_authorized?(record)
+  #  !current_user.nil?
+  #end
+
   # saves paperclip image from external source
   def set_image_from_params
     @expression.image = open(params[:image_url]) unless params[:image_url].empty?

@@ -44,10 +44,12 @@ describe CollectionsController do
     end
 
     it "shows only user's collection (LOGGED USER)" do
-      user = Factory.create(:user)
-      sign_in user
+      user1 = Factory.create(:user)
+      user2 = Factory.create(:user)
+      sign_in user1
 
-      c1 = FactoryGirl.create(:collection, :user => user)
+      c1 = FactoryGirl.create(:collection, :user => user1)
+      c2 = FactoryGirl.create(:collection, :user => user2)
 
       get :index
       assigns(:records).should == [c1] 
