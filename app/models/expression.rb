@@ -7,7 +7,7 @@ class Expression < ActiveRecord::Base
                         :tiny => "32x32",
                         :small => "64x64",
                         :medium => "200x200",
-                        :original => "400x400",
+                        :original => "400x350",
                         :big => "600x600"
                     }
 
