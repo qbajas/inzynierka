@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.field {
+  overflow: auto;
+
+  #definitions, #examples, #synonyms{
+    float: right;
+    width:50%;
+  }
+}
+
+
 
 .actions_expression{
     text-align:center;
@@ -47,7 +57,7 @@ img.imageSelected{
 form.new_expression, form.edit_expression{
     textarea{
         height: 150px;
-        width: 500px;
+        width: 45%;
     }
 }
 

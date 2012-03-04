@@ -1,5 +1,5 @@
 imageSearch.execute('<%= escape_javascript(@query) %>');
-$('#definitions').html('<div><b>Definitions</b></div>');
+$('#definitions').html('<div><b>Available definitions:</b></div>');
 <% @definitions.each do |definition| %>
 $('#definitions').append('<%= j(\
       render(:partial => "definition", :locals => {:text => definition, :element_class => "definition"} )\
@@ -22,3 +22,10 @@ $('#synonyms').append('<%= j(\
       ) %>');
 <%end%>
 $('#data_loading').hide();
+
+//preselect
+//$('.definition:first').click();
+//$('.example:first').click();
+//$('.synonym:first').click();
+//$('.synonym').eq(1).click();
+//$('#google_images div img').eq(0).click();

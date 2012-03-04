@@ -42,33 +42,38 @@
       #branding
       #google_images{:style => 'overflow:auto;'}
 
-      = f.label :image
+      = f.label :image, 'Choose an image represeting the expression from thumbnails above'
       #image_preview
         = image_tag(@expression.image) if @expression.image.present?
 
 
     .field
       #definitions
-      = f.label :definition
+      = f.label :definition, 'Choose definitions of the expression from the list on the right'
+      %br
       = f.text_area :definition
 
     .field
       #examples
-      = f.label :examples
+      = f.label :examples, 'Choose examples from the list on the right'
+      %br
       = f.text_area :examples
 
     .field
       #synonyms
-      = f.label :synonyms
+      = f.label :synonyms, 'Choose synonyms of the expression from the list on the right'
+      %br
       = f.text_area :synonyms
 
     .field
-      = f.label :collection
+      = f.label :collection, 'The expression will be saved in this collection'
+      %br
       = f.select :collection_id, collections_for_select
 
 
     .field
-      = f.label :notes
+      = f.label :notes, 'You can add additional notes for the expression'
+      %br
       = f.text_field :notes
 
     = hidden_field_tag :image_url
