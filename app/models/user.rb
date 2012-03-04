@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :collections
 
-  after_save :create_collection
+  after_create :create_collection
 
 
   # extract login from email
