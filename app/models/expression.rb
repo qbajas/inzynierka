@@ -34,16 +34,21 @@ class Expression < ActiveRecord::Base
 
   # starting expression for learn controller
   def self.first_for_learning(id, last_expression, collection_id)
-    if id
-      # id is in url
-      @expression = Expression.find id
-    elsif last_expression
-      # id saved in session
-      @expression = Expression.find last_expression
-    elsif collection_id
-      @expression = Collection.find(collection_id).expressions.last
-    else
-      # first visit
+    begin
+      if id
+        # id is in url
+        @expression = Expression.find id
+      elsif last_expression
+        # id saved in session
+        @expression = Expression.find last_expression
+      elsif collection_id
+        @expression = Collection.find(collection_id).expressions.last
+      else
+        # first visit
+        @expression = Expression.last
+      end
+    rescue ActiveRecord::RecordNotFound
+      # if saved expression does not exist (eg was deleted)
       @expression = Expression.last
     end
   end

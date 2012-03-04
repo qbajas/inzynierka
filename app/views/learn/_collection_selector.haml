@@ -6,9 +6,9 @@
 
     -@collections.each do |collection|
       %p
-        =radio_button_tag "collection", "#{collection.id}", collection==@expression.collection
+        =radio_button_tag "collection", "#{collection.id}", collection==@expression.collection, :onchange => 'form.submit();'
         =label_tag "collection_#{collection.id}","#{collection.name}"
 
     =hidden_field_tag :type, 'collection'
 
-    =submit_tag 'Save settings '
+    -submit_tag 'Save settings '

@@ -12,6 +12,15 @@ describe LearnController do
       Expression.delete_all
       response.should be_success
     end
+
+    it 'should go to last expression when the one in url was deleted' do
+     3.times{|i| FactoryGirl.create(:expression)}
+     expressions = Expression.all
+     id = expressions[1].id
+     expressions[1].destroy
+     get 'index', :id => id
+     response.should be_success
+    end 
   end
 
 

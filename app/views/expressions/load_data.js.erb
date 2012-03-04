@@ -5,11 +5,10 @@ $('#definitions').append('<%= j(\
       render(:partial => "definition", :locals => {:text => definition, :element_class => "definition"} )\
       ) %>');
 <%end%>
-if (!$.trim($('input#expression_name')[1].value)) {
-  $('input#expression_name').attr('value', '<%= @query %>');
-} else {
-  $('#suggested_name').append('<div class="name"><%= @query %></div>');
-}
+
+$('input#expression_name').attr('value', '<%= @query %>');
+$('#suggested_name').append('<div class="name"><%= @query %></div>');
+
 $('#examples').html('<div><b>Examples</b></div>');
 <% @examples.each do |example| %>
 $('#examples').append('<%= j(\

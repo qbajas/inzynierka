@@ -1,5 +1,4 @@
 class LongmanDictionary < ActiveRecord::Base
 
-  API_KEY  
-
+#  API_KEY  
 end

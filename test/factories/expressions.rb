@@ -5,5 +5,7 @@ FactoryGirl.define do
       name "MyText"
       definition "MyText"
       notes "MyText"
+      examples "MyExample"
+      synonyms "MySynonym" 
     end
 end
