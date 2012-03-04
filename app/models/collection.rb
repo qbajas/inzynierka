@@ -4,7 +4,6 @@ class Collection < ActiveRecord::Base
 
   validates :name, :presence => true, :length => {:maximum => 255}
   validates :user, :presence => { :message => 'You have to be logged in to create collections' }
-  # TODO add a message to log in to create collections
 
   belongs_to :user
 
