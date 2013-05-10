@@ -36,7 +36,7 @@ gem 'fastercsv'
 group :test, :development do
   gem 'rspec-rails'
   gem "factory_girl_rails"
-  gem 'spork'
+#  gem 'spork'
 end
 
 # Use unicorn as the web server

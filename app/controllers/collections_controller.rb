@@ -1,5 +1,7 @@
 class CollectionsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   active_scaffold :collection do |conf|
     conf.columns[:expressions].form_ui = :select
     conf.create.columns.exclude :expressions, :user

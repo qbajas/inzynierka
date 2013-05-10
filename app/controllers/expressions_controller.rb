@@ -2,6 +2,8 @@ class ExpressionsController < ApplicationController
 
   require 'open-uri'
 
+  before_filter :authenticate_user!
+
   active_scaffold :expression do |conf|
     #conf.actions.exclude :delete
     conf.columns = [:image, :name, :definition, :collection]
